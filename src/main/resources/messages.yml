@@ -1,7 +1,6 @@
 DOCUMENTATION: https://annoying-api.srnyx.com/wiki/messages-file
 
 
-# Messages for general plugin usage
 plugin:
   # These are placeholders that can be used in any message in this file
   # This is extremely useful for things like prefixes, color schemes, and more
@@ -49,7 +48,6 @@ lives:
 
 eat:
   success: "%p%You ate a life, you now have %s%%lives%%p% lives!" # %lives%
-
   max: "%p%You already have the maximum amount of lives (%s%%max%%p%)!" # %max%
 
 get: # %lives%
@@ -59,7 +57,7 @@ get: # %lives%
 set: # %amount%
   self: "%prefix%Set your lives to %s%%lives%@@%p%%command%@@%command%" # %lives%
   other: "%prefix%Set %s%%target%%p%'s lives to %s%%lives%@@%p%%command%@@%command%" # %lives%, %target%
-  all: "&aSet lives to %amount% for %succeeded% players. Failed for %failed% players."
+  all: "%prefix%%p%Set lives to %s%%amount%%p% for %s%%succeeded%%p% players. Failed for %s%%failed%%p% players." # %amount%, %succeeded%, %failed%
 
   min: "%prefix%%se%%amount%%pe% is below the minimum amount of lives (%se%%min%%pe%)!@@%pe%%command%@@%command%" # %target%, %min%, %max%
   max: "%prefix%%se%%amount%%pe% is above the maximum amount of lives (%se%%max%%pe%)!@@%pe%%command%@@%command%" # %target%, %min%, %max%
@@ -67,7 +65,7 @@ set: # %amount%
 add: # %amount%
   self: "%prefix%Gave %s%%amount%%p% lives to yourself, you now have %s%%lives%@@%p%%command%@@%command%" # %lives%
   other: "%prefix%Gave %s%%amount%%p% lives to %s%%target%%p%, they now have %s%%lives%@@%p%%command%@@%command%" # %lives%, %target%
-  all: "&aAdded %amount% lives to %succeeded% players. Failed for %failed% players."
+  all: "%prefix%%p%Added %s%%amount%%p% lives to %s%%succeeded%%p% players. Failed for %s%%failed%%p% players." # %amount%, %succeeded%, %failed%
 
   max: "%prefix%%pe%Adding %se%%amount%%pe% lives would cause %se%%target%%pe% to exceed the maximum amount of lives (%se%%max%%pe%)!@@%pe%%command%@@%command%" # %target%, %min%, %max%
 
@@ -80,10 +78,10 @@ remove: # %amount%
 give:
   player: "%prefix%Gave %s%%amount%%p% lives to %s%%target%%p%, you now have %s%%playerlives%%p% lives and they have %s%%targetlives%%p% lives@@%p%%command%@@%command%" # %player%, %target%, %playerlives%, %targetlives%, %amount%
   target: "%prefix%You were given %s%%amount%%p% lives by %s%%player%%p%, you now have %s%%targetlives%%p% lives and they have %s%%playerlives%%p% lives@@%p%%command%@@%command%" # %player%, %target%, %playerlives%, %targetlives%, %amount%
-  all: "&aGave %amount% lives to %succeeded% players. Failed for %failed% players."
+  all: "%prefix%%p%Gave %s%%amount%%p% lives to %s%%succeeded%%p% players. Failed for %s%%failed%%p% players." # %amount%, %succeeded%, %failed%
 
   self: "%prefix%%pe%You can't give lives to yourself!@@%pe%%command%@@%command%"
-  last-life: "%prefix%%peYou can't give away your last life!@@%pe%%command%@@%command%"
+  last-life: "%prefix%%pe%You can't give away your last life!@@%pe%%command%@@%command%"
 
 withdraw:
   self: "%prefix%Withdrew %s%%amount%%p% lives@@%p%%command%@@%command%" # %amount%
@@ -93,4 +91,9 @@ withdraw:
   recipe-not-set: "%prefix%%pe%The recipe for withdrawing lives has not been set!@@%pe%%command%@@%command%"
   negative: "%prefix%%pe%You can't withdraw a negative amount of lives!@@%pe%%command%@@%command%"
 
-convert: "%prefix%%s%%succeeded%%p% players were successfully converted from %s%%source%%p% to %s%Limited Lives%p% (%s%%failed%%p% failed)@@%p%%command%@@%command%" # %source%, %succeeded%, %fail%
+# Message for converting data from another plugin
+convert: "%prefix%%s%%succeeded%%p% players were successfully converted from %s%%source%%p% to %s%Limited Lives%p% (%s%%failed%%p% failed)@@%p%%command%@@%command%" # %source%, %succeeded%, %failed%
+
+action:
+  all:
+    failed: "%prefix%%pe%Failed to %se%%action%%pe% %se%%amount%%pe% lives for %se%%player%%pe%: %se%%reason%%pe%@@%pe%%command%@@%command%" # %action%, %amount%, %player%, %reason%
