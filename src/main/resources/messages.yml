@@ -59,6 +59,7 @@ get: # %lives%
 set: # %amount%
   self: "%prefix%Set your lives to %s%%lives%@@%p%%command%@@%command%" # %lives%
   other: "%prefix%Set %s%%target%%p%'s lives to %s%%lives%@@%p%%command%@@%command%" # %lives%, %target%
+  all: "&aSet lives to %amount% for %succeeded% players. Failed for %failed% players."
 
   min: "%prefix%%se%%amount%%pe% is below the minimum amount of lives (%se%%min%%pe%)!@@%pe%%command%@@%command%" # %target%, %min%, %max%
   max: "%prefix%%se%%amount%%pe% is above the maximum amount of lives (%se%%max%%pe%)!@@%pe%%command%@@%command%" # %target%, %min%, %max%
@@ -66,6 +67,7 @@ set: # %amount%
 add: # %amount%
   self: "%prefix%Gave %s%%amount%%p% lives to yourself, you now have %s%%lives%@@%p%%command%@@%command%" # %lives%
   other: "%prefix%Gave %s%%amount%%p% lives to %s%%target%%p%, they now have %s%%lives%@@%p%%command%@@%command%" # %lives%, %target%
+  all: "&aAdded %amount% lives to %succeeded% players. Failed for %failed% players."
 
   max: "%prefix%%pe%Adding %se%%amount%%pe% lives would cause %se%%target%%pe% to exceed the maximum amount of lives (%se%%max%%pe%)!@@%pe%%command%@@%command%" # %target%, %min%, %max%
 
@@ -78,6 +80,7 @@ remove: # %amount%
 give:
   player: "%prefix%Gave %s%%amount%%p% lives to %s%%target%%p%, you now have %s%%playerlives%%p% lives and they have %s%%targetlives%%p% lives@@%p%%command%@@%command%" # %player%, %target%, %playerlives%, %targetlives%, %amount%
   target: "%prefix%You were given %s%%amount%%p% lives by %s%%player%%p%, you now have %s%%targetlives%%p% lives and they have %s%%playerlives%%p% lives@@%p%%command%@@%command%" # %player%, %target%, %playerlives%, %targetlives%, %amount%
+  all: "&aGave %amount% lives to %succeeded% players. Failed for %failed% players."
 
   self: "%prefix%%pe%You can't give lives to yourself!@@%pe%%command%@@%command%"
   last-life: "%prefix%%peYou can't give away your last life!@@%pe%%command%@@%command%"
